@@ -92,6 +92,9 @@ func parseNestedTemplates(ctx context.Context, nested config.Templates, tmpl *te
 	fsp := FSProviderFromContext(ctx)
 
 	for alias, n := range nested {
+		if n.URL == nil {
+			return fmt.Errorf("URL for %q is nil", alias)
+		}
 		u := *n.URL
 
 		fname := path.Base(u.Path)
