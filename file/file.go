@@ -51,10 +51,10 @@ func ReadDir(path string) ([]string, error) {
 // Write the given content to the file, truncating any existing file, and
 // creating the directory structure leading up to it if necessary.
 func Write(filename string, content []byte) error {
-	err := assertPathInWD(filename)
-	if err != nil {
-		return errors.Wrapf(err, "failed to open %s", filename)
-	}
+	//err := assertPathInWD(filename)
+	//if err != nil {
+	//	return errors.Wrapf(err, "failed to open %s", filename)
+	//}
 
 	fi, err := os.Stat(filename)
 	if err != nil && !os.IsNotExist(err) {
